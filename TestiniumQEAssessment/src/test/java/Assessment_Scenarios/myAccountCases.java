@@ -80,7 +80,6 @@ public class myAccountCases {
     }
 
     //Test to verify the account balance/amount is displayed correctly.
-
     @Test(priority = 5)
     public void accountAmountTest() throws InterruptedException {
         Thread.sleep(150);  // Short delay to ensure element is visible
@@ -97,7 +96,6 @@ public class myAccountCases {
     }
 
     //Test to verify the "Add Money" button is displayed and enabled.
-
     @Test(priority = 7)
     public void addMoneyButtonTest() throws InterruptedException {
         Thread.sleep(150);  // Short delay to ensure element is visible
