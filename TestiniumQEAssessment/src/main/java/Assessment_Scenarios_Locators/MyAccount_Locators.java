@@ -34,7 +34,7 @@ public class MyAccount_Locators {
     }
 
     // Locator for the account creation time field
-    By accountCreationTime = By.xpath("(//div[@class='css-146c3p1 r-1ozpqpt r-yv33h5 r-1b43r93'])[3]");
+    By accountCreationTime = By.xpath("(//div[@class='css-175oi2r r-13qz1uu'])[3]");
     public WebElement getAccountCreationTime() {
         // Returns the WebElement representing the account creation time
         return driver.findElement(accountCreationTime);
