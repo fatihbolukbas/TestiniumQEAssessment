@@ -20,12 +20,12 @@ public class EditAccount_Locators {
         return driver.findElement(closeButton);
     }
 
-    By accountNameField = By.xpath("//div[@class='css-175oi2r r-13qz1uu']");
+    By accountNameField = By.xpath("//input[@autocapitalize='sentences']");
     public WebElement getAccountNameField(){
         return driver.findElement(accountNameField);
     }
 
-    By updateButton = By.xpath("//div[@xpath='1']");
+    By updateButton = By.xpath("(//div[@class='css-146c3p1 r-jwli3a r-1b43r93'])[5]");
     public WebElement getUpdateButton(){
         return driver.findElement(updateButton);
     }
@@ -36,6 +36,11 @@ public class EditAccount_Locators {
 
     public void clickUpdateButton(){
         getUpdateButton().click();
+    }
+
+    public void updateAccountName(String newName){
+        WebElement newAccountName = getAccountNameField();
+        newAccountName.sendKeys(newName);
     }
 
 
