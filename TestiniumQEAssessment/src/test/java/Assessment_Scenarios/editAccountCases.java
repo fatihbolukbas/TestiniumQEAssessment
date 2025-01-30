@@ -95,12 +95,12 @@ public class editAccountCases {
         Assert.assertTrue(updateButton.isDisplayed(), "Update button is not displayed");
         Assert.assertTrue(updateButton.isEnabled(), "Update button is not enabled");
         editAccountActions.getUpdateButton().click();
-        Thread.sleep(3000);
+        //Thread.sleep(3000);
 
         editAccountActions.getEditAccountButton().click();
         String displayedAccountName = editAccountActions.getAccountNameField().getAttribute("value");
         Assert.assertEquals(displayedAccountName, "Fatih Bölükbaş", "Account name is not correct");
-        Thread.sleep(1000);
+        //Thread.sleep(1000);
         editAccountActions.getCloseButton().click();
 
     }
@@ -111,11 +111,6 @@ public class editAccountCases {
         editAccountActions.getAccountNameField().clear();
         editAccountActions.updateAccountName("Fatih");
         editAccountActions.getUpdateButton().click();
+        driver.quit();
     }
-
-    /*@Test(priority = 3)
-    public void blankAccountNameFieldTest() {
-        String displayedAccountName = editAccountActions.getAccountNameField().getAttribute("value");
-        Assert.assertFalse(displayedAccountName.isEmpty(), "The text box is empty!");
-    }*/
 }

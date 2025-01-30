@@ -34,10 +34,6 @@ public class EditAccount_Locators {
         getEditAccountButton().click();
     }
 
-    public void clickUpdateButton(){
-        getUpdateButton().click();
-    }
-
     public void updateAccountName(String newName){
         WebElement newAccountName = getAccountNameField();
         newAccountName.sendKeys(newName);
