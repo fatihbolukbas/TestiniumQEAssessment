@@ -6,11 +6,12 @@ import org.openqa.selenium.WebElement;
 
 public class TransferMoney_Locators {
     WebDriver driver;
+    private String enteredAmount;
     public TransferMoney_Locators(WebDriver driver) {
         this.driver = driver;
     }
 
-    By closeButton = By.xpath("//div[@class='css-146c3p1 r-lrvibr r-1loqt21']");
+    By closeButton = By.xpath("(//div[@class='css-146c3p1 r-lrvibr r-1loqt21'])");
     public WebElement getCloseButton() {
         return driver.findElement(closeButton);
     }
@@ -20,12 +21,12 @@ public class TransferMoney_Locators {
         return driver.findElement(senderAccount);
     }
 
-    By receiverAccount = By.xpath("//div[7]/select");
-    public WebElement getReceiverAccount() {
-        return driver.findElement(receiverAccount);
+    By receiverAccountDropdown = By.xpath("//div[7]/select");
+    public WebElement getReceiverAccountDropdown() {
+        return driver.findElement(receiverAccountDropdown);
     }
 
-    By amount = By.xpath("//div[@class='css-175oi2r r-13qz1uu']");
+    By amount = By.xpath("//div[@class='css-175oi2r r-13qz1uu']/input");
     public WebElement getAmount() {
         return driver.findElement(amount);
     }
@@ -34,4 +35,15 @@ public class TransferMoney_Locators {
     public WebElement getSendButton() {
         return driver.findElement(sendButton);
     }
+
+    public void enterAmount(String amount) {
+        WebElement amountField = getAmount();
+        amountField.sendKeys(amount);
+        this.enteredAmount = amount;
+    }
+
+    public String getEnteredAmount() {
+        return this.enteredAmount;
+    }
+
 }

@@ -48,7 +48,7 @@ public class MyAccount_Locators {
     }
 
     // Locator for the "Transfer Money" button
-    By transferMoneyButton = By.xpath("(//div[@tabindex='0'])[3]");
+    By transferMoneyButton = By.xpath("(//div[@class='css-146c3p1 r-jwli3a r-1b43r93'])[2]");
     public WebElement getTransferMoneyButton() {
         // Returns the WebElement representing the "Transfer Money" button
         return driver.findElement(transferMoneyButton);
@@ -66,5 +66,9 @@ public class MyAccount_Locators {
     public WebElement getEditAccountButton() {
         // Returns the WebElement representing the "Edit Account" button
         return driver.findElement(editAccountButton);
+    }
+
+    public void clickTransferMoneyButton() {
+        getTransferMoneyButton().click();
     }
 }
