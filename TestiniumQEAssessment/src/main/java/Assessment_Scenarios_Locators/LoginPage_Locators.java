@@ -5,33 +5,47 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage_Locators {
-    // WebDriver instance to interact with the browser
     WebDriver driver;
 
-    // Constructor that initializes the WebDriver
+    // Constructor to initialize WebDriver
     public LoginPage_Locators(WebDriver driver) {
         this.driver = driver;
     }
 
-    // Locator for the username input field
+    // Username field label locator
+    By usernameFieldLabel = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[3]/div[@class='css-175oi2r r-13qz1uu']/div[.='Enter username*']");
+    public WebElement getusernameFieldLabel() {
+        return driver.findElement(usernameFieldLabel);
+    }
+
+    // Username input field locator
     By usernameField = By.xpath("//input[@placeholder='Username']");
-    // Method to get the username input field element
     public WebElement getUsernameField() {
         return driver.findElement(usernameField); // Find and return the username input field element
     }
 
-    // Locator for the password input field
+    // Password field label locator
+    By passwordFieldLabel = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[4]/div[@class='css-175oi2r r-13qz1uu']/div[.='Enter password*']");
+    public WebElement getPasswordFieldLabel() {
+        return driver.findElement(passwordFieldLabel);
+    }
+
+    // Username input field locator
     By passwordField = By.xpath("//input[@placeholder='Password']");
-    // Method to get the password input field element
     public WebElement getPasswordField() {
         return driver.findElement(passwordField); // Find and return the password input field element
     }
 
-    // Locator for the login button
+    // Login button locator
     By loginButton = By.xpath("//div[@class='css-146c3p1 r-jwli3a r-1b43r93']");
-    // Method to get the login button element
     public WebElement getLoginButton() {
         return driver.findElement(loginButton); // Find and return the login button element
+    }
+
+    // Validation message locator
+    By validationMessage = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[2]/div[.='Username or Password Invalid!']");
+    public WebElement getValidationMessage() {
+        return driver.findElement(validationMessage);
     }
 
     // Method to navigate to the login page (opens the URL)
@@ -39,22 +53,22 @@ public class LoginPage_Locators {
         driver.get("https://catchylabs-webclient.testinium.com/signIn"); // Navigate to the sign-in page
     }
 
-    // Method to enter the username into the username field
+    // Method to enter the username
     public void enterUsername(String username) {
-        WebElement usernameField = getUsernameField(); // Get the username field element
-        usernameField.clear(); // Clear any pre-existing text in the username field
-        usernameField.sendKeys(username); // Enter the provided username into the username field
+        WebElement usernameField = getUsernameField();
+        usernameField.clear();
+        usernameField.sendKeys(username);
     }
 
-    // Method to enter the password into the password field
+    // Method to enter the password
     public void enterPassword(String password) {
-        WebElement passwordField = getPasswordField(); // Get the password field element
-        passwordField.clear(); // Clear any pre-existing text in the password field
-        passwordField.sendKeys(password); // Enter the provided password into the password field
+        WebElement passwordField = getPasswordField();
+        passwordField.clear();
+        passwordField.sendKeys(password);
     }
 
     // Method to click the login button
     public void clickLoginButton() {
-        getLoginButton().click(); // Find the login button and click it
+        getLoginButton().click();
     }
 }

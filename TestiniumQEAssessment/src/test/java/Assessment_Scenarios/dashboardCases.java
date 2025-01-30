@@ -2,6 +2,7 @@ package Assessment_Scenarios;
 
 import Assessment_Scenarios_Locators.Dashboard_Locators;
 import Assessment_Scenarios_Locators.LoginPage_Locators;
+
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,29 +16,30 @@ public class dashboardCases {
     // WebDriver instance to interact with the browser
     WebDriver driver;
 
-    // Instances of LoginPage_Locators and Dashboard_Locators to interact with respective pages
+    // Page object locators for each page of the flow
     LoginPage_Locators loginActions, homePage;
     Dashboard_Locators dashboardActions;
 
     // This method runs before all the test methods to set up the WebDriver, login, and navigate to the dashboard
     @BeforeTest
     public void beforeTest() throws InterruptedException {
-        WebDriverManager.chromedriver().setup();  // Set up WebDriver with ChromeDriver
-        driver = new ChromeDriver();  // Initialize ChromeDriver
-        driver.manage().window().maximize();  // Maximize the browser window
+        // WebDriver setup and navigate to login page
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
-        // Initialize the LoginPage_Locators and Dashboard_Locators to interact with respective pages
+        // Initialize page objects to interact with web pages
         homePage = new LoginPage_Locators(driver);
-        homePage.goTo();  // Navigate to the login page
+
+        // Initialize other page locators
         loginActions = new LoginPage_Locators(driver);
         dashboardActions = new Dashboard_Locators(driver);  // Initialize Dashboard_Locators
 
-        // Perform login actions using the provided credentials
+        // Perform login with valid credentials
         loginActions.enterUsername("fatih.bolukbas");
         loginActions.enterPassword("159753fatih");
         loginActions.clickLoginButton();
 
-        // Adding a delay
         Thread.sleep(1000);
     }
 

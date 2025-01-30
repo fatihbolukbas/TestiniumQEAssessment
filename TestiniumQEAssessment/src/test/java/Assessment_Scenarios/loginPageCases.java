@@ -6,10 +6,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.Assert;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class loginPageCases {
     // WebDriver instance to interact with the browser
@@ -20,7 +20,7 @@ public class loginPageCases {
 
     // This method runs before the tests start and sets up the WebDriver and browser
     @BeforeTest
-    public void beforeTest(){
+    public void beforeTest() {
         WebDriverManager.chromedriver().setup();  // Set up WebDriver with ChromeDriver
         driver = new ChromeDriver();  // Initialize ChromeDriver
         driver.manage().window().maximize();  // Maximize the browser window
@@ -28,56 +28,108 @@ public class loginPageCases {
         // Initialize the LoginPage_Locators to interact with login page elements
         homePage = new LoginPage_Locators(driver);
         homePage.goTo();  // Navigate to the login page
+
+        // Initialize page locators
         loginActions = new LoginPage_Locators(driver);  // Another instance for performing actions on login page
     }
 
-    // Test to verify that the login page title is correct
     @Test(priority = 1)
-    public void loginPageTitleTest(){
-        String title = driver.getTitle();  // Get the title of the current page
-        // Assert that the title matches the expected value
-        Assert.assertEquals(title, "login", "Home page title is wrong");
+    public void loginPageTitleTest() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Test to verify that the login page title is correct
+        String title = driver.getTitle();
+        softAssert.assertEquals(title, "login", "Home page title is wrong");
     }
 
-    // Test to verify that the username field is empty initially
     @Test(priority = 2)
-    public void usernameFieldTest(){
-        WebElement username = loginActions.getUsernameField();  // Get the username input field
-        // Check if the username field is not empty, fail the test if it's not
-        if (!username.getText().trim().isEmpty()){
-            Assert.fail("Username field is not empty");
-        }
-        // Enter the test username into the field
-        loginActions.enterUsername("fatih.bolukbas");
+    public void usernameFieldTests() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Verify the username field label is displayed correctly
+        WebElement usernameLabel = loginActions.getusernameFieldLabel();
+        softAssert.assertTrue(usernameLabel.isDisplayed(), "Username label is not displayed");
+
+        // Check the label text to confirm it matches the expected value
+        String displayedUsernameLabel = usernameLabel.getText();
+        softAssert.assertEquals(displayedUsernameLabel, "Enter username*", "Expected field label 'Enter username*', but got " + displayedUsernameLabel);
+
+        // Verify the username input field is displayed and enabled
+        WebElement username = loginActions.getUsernameField();
+        softAssert.assertTrue(username.isDisplayed(), "Username field is not displayed");
+        softAssert.assertTrue(username.isEnabled(), "Username field is not enabled");
+
+        // Verify the card number field is empty by default
+        String displayedUsername = username.getDomAttribute("value");
+        softAssert.assertTrue(displayedUsername.isEmpty(), "Username field is not empty");
+
+        softAssert.assertAll();
     }
 
-    // Test to verify that the password field is empty initially
     @Test(priority = 3)
-    public void passwordFieldTest(){
-        WebElement password = loginActions.getPasswordField();  // Get the password input field
-        // Check if the password field is not empty, fail the test if it's not
-        if (!password.getText().trim().isEmpty()){
-            Assert.fail("Password field is not empty");
-        }
-        // Enter the test password into the field
-        loginActions.enterPassword("159753fatih");
+    public void passwordFieldTests() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Verify the password field label is displayed correctly
+        WebElement passwordLabel = loginActions.getPasswordFieldLabel();
+        softAssert.assertTrue(passwordLabel.isDisplayed(), "Password field is not displayed");
+
+        // Check the label text to confirm it matches the expected value
+        String displayedPasswordLabel = passwordLabel.getText();
+        softAssert.assertEquals(displayedPasswordLabel, "Enter password*", "Expected field label 'Enter password*', but got " + displayedPasswordLabel);
+
+        // Verify the pasword input field is displayed and enabled
+        WebElement password = loginActions.getPasswordField();
+        softAssert.assertTrue(password.isDisplayed(), "Password field is not displayed");
+        softAssert.assertTrue(password.isEnabled(), "Password field is not enabled");
+
+        // Verify the card number field is empty by default
+        String displayedPassword = password.getDomAttribute("value");
+        softAssert.assertTrue(displayedPassword.isEmpty(), "Password field is not empty");
+
+        softAssert.assertAll();
     }
 
-    // Test to verify the login button is displayed and enabled
     @Test(priority = 4)
-    public void loginButtonTest(){
-        WebElement loginButton = loginActions.getLoginButton();  // Get the login button element
-        // Assert that the login button is displayed on the page
-        Assert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
-        // Assert that the login button is enabled for interaction
-        Assert.assertTrue(loginButton.isEnabled(), "Login button is not enabled");
-        // Click the login button
-        loginActions.clickLoginButton();
+    public void validationTests() throws InterruptedException {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Simulate clicking the login button and check for validation messages
+        loginActions.getLoginButton().click();
+        Thread.sleep(1000);
+
+        WebElement validationMessage = loginActions.getValidationMessage();
+        softAssert.assertTrue(validationMessage.isDisplayed(), "Validation message is not displayed");
+    }
+
+    @Test(priority = 5)
+    public void loginButtonTest() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Check if LOGIN button is visible and enabled
+        WebElement loginButton = loginActions.getLoginButton();
+        softAssert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
+        softAssert.assertTrue(loginButton.isEnabled(), "Login button is not enabled");
+    }
+
+    @Test(priority = 6)
+    public void loginTest() {
+        SoftAssert softAssert = new SoftAssert();
+
+        // Perform login with valid credentials
+        WebElement loginButton = loginActions.getLoginButton();
+        loginActions.enterUsername("fatih.bolukbas");
+        loginActions.enterPassword("159753fatih");
+
+        // Check if LOGIN button is visible and enabled to click
+        softAssert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
+        softAssert.assertTrue(loginButton.isEnabled(), "Login button is not enabled");
+        loginButton.click();
     }
 
     // This method runs after all the test methods and quits the WebDriver
     @AfterTest
-    public void afterTest(){
+    public void afterTest() {
         driver.quit();  // Quit the browser and end the session
     }
 }
