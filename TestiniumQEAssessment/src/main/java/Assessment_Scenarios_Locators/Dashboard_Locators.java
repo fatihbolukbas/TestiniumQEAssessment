@@ -5,23 +5,51 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class Dashboard_Locators {
-    // WebDriver instance to interact with the browser
-    WebDriver driver;
+    WebDriver driver; // WebDriver instance to interact with the browser
 
-    // Constructor that initializes the WebDriver instance for interacting with the dashboard page
+    // Constructor to initialize WebDriver
     public Dashboard_Locators(WebDriver driver) {
         this.driver = driver;
     }
 
-    // Locator for the "Money Transfer" button on the dashboard
-    By moneyTransferButton = By.xpath("//div[@class='css-146c3p1 r-jwli3a r-1b43r93']");
-    // Method to get the "Money Transfer" button element
-    public WebElement getMoneyTransferButton() {
-        return driver.findElement(moneyTransferButton); // Find and return the "Money Transfer" button element
+    // Challenge name field label locator
+    By challengeName = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div/div[1]/div[1]");
+    public WebElement getChallengeName() {
+        return driver.findElement(challengeName);
     }
 
-    // Method to click the "Money Transfer" button
+    // Start time field label locator
+    By startTime = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div/div[1]/div[2]");
+    public WebElement getStartTime() {
+        return driver.findElement(startTime);
+    }
+
+    // End time field label locator
+    By endTime = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div/div[1]/div[3]");
+    public WebElement getEndTime() {
+        return driver.findElement(endTime);
+    }
+
+    // Manager name field label locator
+    By managerName = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div/div[1]/div[4]");
+    public WebElement getManagerName() {
+        return driver.findElement(managerName);
+    }
+
+    // Company name field label locator
+    By companyName = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div/div[1]/div[5]");
+    public WebElement getCompanyName() {
+        return driver.findElement(companyName);
+    }
+
+    // 'OPEN MONEY TRANSFER' button locator
+    By moneyTransferButton = By.xpath("//div[@class='css-146c3p1 r-jwli3a r-1b43r93']");
+    public WebElement getMoneyTransferButton() {
+        return driver.findElement(moneyTransferButton);
+    }
+
+    // Method to click the "OPEN MONEY TRANSFER" button
     public void clickMoneyTransferButton() {
-        getMoneyTransferButton().click(); // Find the "Money Transfer" button and click it
+        getMoneyTransferButton().click();
     }
 }

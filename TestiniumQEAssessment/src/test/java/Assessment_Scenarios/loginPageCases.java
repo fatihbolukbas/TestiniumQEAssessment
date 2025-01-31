@@ -15,22 +15,23 @@ public class loginPageCases {
     // WebDriver instance to interact with the browser
     WebDriver driver;
 
-    // LoginPage_Locators instance for interacting with login page elements
+    // Page object locators for each page of the flow
     LoginPage_Locators loginActions, homePage;
 
     // This method runs before the tests start and sets up the WebDriver and browser
     @BeforeTest
     public void beforeTest() {
-        WebDriverManager.chromedriver().setup();  // Set up WebDriver with ChromeDriver
-        driver = new ChromeDriver();  // Initialize ChromeDriver
-        driver.manage().window().maximize();  // Maximize the browser window
+        // WebDriver setup
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
 
-        // Initialize the LoginPage_Locators to interact with login page elements
+        // Initialize page objects to interact with web pages and navigate to login page
         homePage = new LoginPage_Locators(driver);
-        homePage.goTo();  // Navigate to the login page
+        homePage.goTo();
 
         // Initialize page locators
-        loginActions = new LoginPage_Locators(driver);  // Another instance for performing actions on login page
+        loginActions = new LoginPage_Locators(driver);
     }
 
     @Test(priority = 1)
@@ -98,6 +99,7 @@ public class loginPageCases {
         loginActions.getLoginButton().click();
         Thread.sleep(1000);
 
+        // Verify the validation message is displayed correctly
         WebElement validationMessage = loginActions.getValidationMessage();
         softAssert.assertTrue(validationMessage.isDisplayed(), "Validation message is not displayed");
     }
@@ -130,6 +132,6 @@ public class loginPageCases {
     // This method runs after all the test methods and quits the WebDriver
     @AfterTest
     public void afterTest() {
-        driver.quit();  // Quit the browser and end the session
+        driver.quit();
     }
 }

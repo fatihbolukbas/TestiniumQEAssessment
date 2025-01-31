@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class LoginPage_Locators {
-    WebDriver driver;
+    WebDriver driver; // WebDriver instance to interact with the browser
 
     // Constructor to initialize WebDriver
     public LoginPage_Locators(WebDriver driver) {

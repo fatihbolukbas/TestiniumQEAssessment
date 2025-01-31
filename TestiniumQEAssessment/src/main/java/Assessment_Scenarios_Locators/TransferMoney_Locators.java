@@ -23,6 +23,16 @@ public class TransferMoney_Locators {
         return driver.findElement(closeButton);
     }
 
+    By pageName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div//div[@class='css-146c3p1 r-ubezar r-vw2c0b']");
+    public WebElement getPageName() {
+        return driver.findElement(pageName);
+    }
+
+    By senderAccountName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div//div[.='Sender account']");
+    public WebElement getSenderAccountName() {
+        return driver.findElement(senderAccountName);
+    }
+
     // Locator for the sender account dropdown
     By senderAccount = By.xpath("//div[3]/select");
     /**
@@ -33,14 +43,24 @@ public class TransferMoney_Locators {
         return driver.findElement(senderAccount);
     }
 
+    By receiverAccountName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div//div[.='Receiver account']");
+    public WebElement getReceiverAccountName() {
+        return driver.findElement(receiverAccountName);
+    }
+
     // Locator for the receiver account dropdown
-    By receiverAccountDropdown = By.xpath("//div[7]/select");
+    By receiverAccount = By.xpath("//div[7]/select");
     /**
      * Method to get the receiver account dropdown element.
      * @return WebElement for the receiver account dropdown
      */
-    public WebElement getReceiverAccountDropdown() {
-        return driver.findElement(receiverAccountDropdown);
+    public WebElement getReceiverAccount() {
+        return driver.findElement(receiverAccount);
+    }
+
+    By amountName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div//div[.='Amount']");
+    public WebElement getAmountName() {
+        return driver.findElement(amountName);
     }
 
     // Locator for the amount input field

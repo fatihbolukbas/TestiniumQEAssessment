@@ -12,57 +12,61 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
 public class transferMoneyCases {
+    // WebDriver instance to interact with the browser
     WebDriver driver;
 
-    // Locators for different pages
+    // Page object locators for each page of the flow
     LoginPage_Locators loginActions, homePage;
     Dashboard_Locators dashboardActions;
     MyAccount_Locators myAccountActions;
     TransferMoney_Locators transferMoneyActions;
 
+    // This method runs before the tests start and sets up the WebDriver and browser
     @BeforeTest
     public void beforeTest() throws InterruptedException {
-        // Setup WebDriver and navigate to login page
+        // WebDriver setup
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
+        // Initialize page objects to interact with web pages and navigate to login page
         homePage = new LoginPage_Locators(driver);
         homePage.goTo();  // Navigate to the login page
 
-        // Initialize page objects
+        // Initialize page locators
         loginActions = new LoginPage_Locators(driver);
         dashboardActions = new Dashboard_Locators(driver);
         myAccountActions = new MyAccount_Locators(driver);
         transferMoneyActions = new TransferMoney_Locators(driver);
 
-        // Perform login using valid credentials
+        // Perform login with valid credentials
         loginActions.enterUsername("fatih.bolukbas");
         loginActions.enterPassword("159753fatih");
         loginActions.clickLoginButton();
 
-        // Wait for the dashboard to load
         Thread.sleep(1000);
 
         // Navigate to the Money Transfer page
         dashboardActions.clickMoneyTransferButton();
         Thread.sleep(1000);
 
-        // Click on the Transfer Money button
+        // // Click on the 'TRASNFER MONEY' button to open Add Money page
         myAccountActions.clickTransferMoneyButton();
         Thread.sleep(1000);
     }
 
     @Test(priority = 1)
     public void closeButtonTest() {
+        SoftAssert softAssert = new SoftAssert();
         // Check that the close button is displayed and enabled
         WebElement closeButton = transferMoneyActions.getCloseButton();
-        Assert.assertTrue(closeButton.isDisplayed(), "Close button is not displayed");
-        Assert.assertTrue(closeButton.isEnabled(), "Close button is not enabled");
+        softAssert.assertTrue(closeButton.isDisplayed(), "Close button is not displayed");
+        softAssert.assertTrue(closeButton.isEnabled(), "Close button is not enabled");
     }
 
     @Test(priority = 2)
@@ -80,7 +84,7 @@ public class transferMoneyCases {
     @Test(priority = 3)
     public void receiverAccountTest() {
         // Validate receiver account dropdown
-        WebElement receiverAccountDropdown = transferMoneyActions.getReceiverAccountDropdown();
+        WebElement receiverAccountDropdown = transferMoneyActions.getReceiverAccount();
         Assert.assertTrue(receiverAccountDropdown.isDisplayed(), "Receiver account is not displayed");
         Assert.assertTrue(receiverAccountDropdown.isEnabled(), "Receiver account is not enabled");
 

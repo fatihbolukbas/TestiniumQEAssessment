@@ -22,18 +22,19 @@ public class addMoneyCases {
     AddMoney_Locators addMoneyActions;
     TransferMoney_Locators transferMoneyActions;
 
-    // This method runs before all the test methods to set up the WebDriver, login, and navigate to the dashboard
+    // This method runs before the tests start and sets up the WebDriver and browser
     @BeforeTest
     public void beforeTest() throws InterruptedException {
-        // WebDriver setup and navigate to login page
+        // WebDriver setup
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().window().maximize();
 
-        // Initialize page objects to interact with web pages
+        // Initialize page objects to interact with web pages and navigate to login page
         homePage = new LoginPage_Locators(driver);
+        homePage.goTo();
 
-        // Initialize other page locators
+        // Initialize page locators
         loginActions = new LoginPage_Locators(driver);
         dashboardActions = new Dashboard_Locators(driver);
         myAccountActions = new MyAccount_Locators(driver);
@@ -291,6 +292,6 @@ public class addMoneyCases {
     // This method runs after all the test methods and quits the WebDriver
     @AfterTest
     public void afterTest() {
-        driver.quit();  // Quit the browser and end the session
+        driver.quit();
     }
 }

@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 public class AddMoney_Locators {
-    WebDriver driver;
+    WebDriver driver; // WebDriver instance to interact with the browser
     private String enteredAmount;  // Variable to store the entered amount
 
     // Constructor to initialize WebDriver
