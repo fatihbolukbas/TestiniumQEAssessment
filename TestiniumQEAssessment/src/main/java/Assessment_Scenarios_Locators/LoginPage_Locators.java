@@ -12,6 +12,11 @@ public class LoginPage_Locators {
         this.driver = driver;
     }
 
+    // Method to navigate to the login page (opens the URL)
+    public void goTo() {
+        driver.get("https://catchylabs-webclient.testinium.com/signIn"); // Navigate to the sign-in page
+    }
+
     // Username field label locator
     By usernameFieldLabel = By.xpath("//div[@class='css-146c3p1 r-1ozpqpt r-g6644c r-1b43r93 r-15zivkp'][1]");
     public WebElement getusernameFieldLabel() {
@@ -46,11 +51,6 @@ public class LoginPage_Locators {
     By validationMessage = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[2]/div[.='Username or Password Invalid!']");
     public WebElement getValidationMessage() {
         return driver.findElement(validationMessage);
-    }
-
-    // Method to navigate to the login page (opens the URL)
-    public void goTo() {
-        driver.get("https://catchylabs-webclient.testinium.com/signIn"); // Navigate to the sign-in page
     }
 
     // Method to enter the username
