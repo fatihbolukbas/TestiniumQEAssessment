@@ -87,8 +87,18 @@ public class MyAccount_Locators {
         return driver.findElement(editAccountButton);
     }
 
-    // Method to click the 'TRANSFER MONEY'
+    // Method to click the 'TRANSFER MONEY' button
     public void clickTransferMoneyButton() {
         getTransferMoneyButton().click();
+    }
+
+    // Method to click the 'EDIT ACCOUNT' button
+    public void clickEditAccountButton() {
+        getEditAccountButton().click();
+    }
+
+    // Method to click the 'ADD MONEY'
+    public void clickAddMoneyButton() {
+        getAddMoneyButton().click();
     }
 }

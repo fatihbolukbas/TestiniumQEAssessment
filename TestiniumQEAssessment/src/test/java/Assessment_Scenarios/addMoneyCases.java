@@ -85,7 +85,7 @@ public class addMoneyCases {
     }
 
     @Test(priority = 3)
-    public void cardNumberFieldTests() {
+    public void cardNumberLabelTest() {
         SoftAssert softAssert = new SoftAssert();
 
         // Verify the card number field label is displayed correctly
@@ -95,6 +95,13 @@ public class addMoneyCases {
         // Check the label text to confirm it matches the expected value
         String displayedCardNumberName = cardNumberLabel.getText();
         softAssert.assertEquals(displayedCardNumberName, "Card number", "Expected field label 'Card number', but got " + displayedCardNumberName);
+
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 4)
+    public void cardNumberTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         // Verify the card number input field is displayed and enabled
         WebElement cardNumber = addMoneyActions.getCardNumber();
@@ -108,16 +115,24 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 4)
-    public void cardHolderFieldTests() {
+    @Test(priority = 5)
+    public void cardHolderFieldTest() {
         SoftAssert softAssert = new SoftAssert();
 
         // Verify cardholder name label is displayed correctly
         WebElement cardHolderName = addMoneyActions.getCardHolderName();
         softAssert.assertTrue(cardHolderName.isDisplayed(), "Card holder name is not displayed");
 
+        // Check the label text to confirm it matches the expected value
         String displayedCardHolderName = cardHolderName.getText();
         softAssert.assertEquals(displayedCardHolderName, "Card holder", "Expected field label 'Card holder', but got " + displayedCardHolderName);
+
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 6)
+    public void cardHolderTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         // Check cardholder input field
         WebElement cardHolder = addMoneyActions.getCardHolder();
@@ -131,7 +146,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 5)
+    @Test(priority = 7)
     public void expiryDateFieldTests() {
         SoftAssert softAssert = new SoftAssert();
 
@@ -139,8 +154,16 @@ public class addMoneyCases {
         WebElement expiryDateName = addMoneyActions.getExpireDateName();
         softAssert.assertTrue(expiryDateName.isDisplayed(), "Expiry date name is not displayed");
 
+        // Check the label text to confirm it matches the expected value
         String displayedExpiryDateName = expiryDateName.getText();
         softAssert.assertEquals(displayedExpiryDateName, "Expiry date", "Expected field label 'Expiry date', but got " + displayedExpiryDateName);
+
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 8)
+    public void expiryDateTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         // Verify expiry date field is displayed and enabled
         WebElement expiryDate = addMoneyActions.getExpireDate();
@@ -154,7 +177,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 6)
+    @Test(priority = 9)
     public void cvvFieldTests() {
         SoftAssert softAssert = new SoftAssert();
 
@@ -162,8 +185,16 @@ public class addMoneyCases {
         WebElement cvvName = addMoneyActions.getCvvName();
         softAssert.assertTrue(cvvName.isDisplayed(), "CVV name is not displayed");
 
+        // Check the label text to confirm it matches the expected value
         String displayedCvvName = cvvName.getText();
         softAssert.assertEquals(displayedCvvName, "CVV", "Expected field label 'CVV', but got " + displayedCvvName);
+
+         softAssert.assertAll();
+    }
+
+    @Test(priority = 10)
+    public void cvvTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         // Verify CVV input field is displayed and enabled
         WebElement cvv = addMoneyActions.getCvv();
@@ -177,7 +208,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 7)
+    @Test(priority = 11)
     public void amountFieldTests() {
         SoftAssert softAssert = new SoftAssert();
 
@@ -185,8 +216,16 @@ public class addMoneyCases {
         WebElement amountName = addMoneyActions.getAmountName();
         softAssert.assertTrue(amountName.isDisplayed(), "Amount name is not displayed");
 
+        // Check the label text to confirm it matches the expected value
         String displayedAmountName = amountName.getText();
         softAssert.assertEquals(displayedAmountName, "Amount", "Expected field label 'Amount', but got " + displayedAmountName);
+
+        softAssert.assertAll();
+    }
+
+    @Test(priority = 12)
+    public void amountTest() {
+        SoftAssert softAssert = new SoftAssert();
 
         // Verify amount input field
         WebElement amount = addMoneyActions.getAmount();
@@ -200,7 +239,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 8)
+    @Test(priority = 13)
     public void validationTest() throws InterruptedException {
         SoftAssert softAssert = new SoftAssert();
 
@@ -226,7 +265,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 9)
+    @Test(priority = 14)
     public void addButtonTest() {
         SoftAssert softAssert = new SoftAssert();
 
@@ -238,7 +277,7 @@ public class addMoneyCases {
         softAssert.assertAll();
     }
 
-    @Test(priority = 10)
+    @Test(priority = 15)
     public void addingMoneyTests() throws InterruptedException {
         SoftAssert softAssert = new SoftAssert();
 
@@ -249,6 +288,7 @@ public class addMoneyCases {
         addMoneyActions.enterCardNumber("1234 1234 1234 1234");
         addMoneyActions.enterCardHolder("Fatih Bölükbaş");
         addMoneyActions.enterExpireDate("1026");
+        Thread.sleep(500);
         addMoneyActions.enterCvv("110");
         addMoneyActions.enterAmount("1000");
         Thread.sleep(2000);

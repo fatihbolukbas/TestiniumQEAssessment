@@ -16,144 +16,144 @@ public class AddMoney_Locators {
     // Page name locator
     By pageName = By.xpath("//div[@class='css-146c3p1 r-ubezar r-vw2c0b']");
     public WebElement getPageName() {
-        return driver.findElement(pageName);  // Returns the page name element
+        return driver.findElement(pageName);
     }
 
     // Close button locator
     By closeButton = By.xpath("//div[@class='css-146c3p1 r-lrvibr r-1loqt21']");
     public WebElement getCloseButton() {
-        return driver.findElement(closeButton);  // Returns the close button element
+        return driver.findElement(closeButton);
     }
 
     // Card number label locator
     By cardNumberName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div//div[.='Card number']");
     public WebElement getCardNumberName() {
-        return driver.findElement(cardNumberName);  // Returns the card number label
+        return driver.findElement(cardNumberName);
     }
 
     // Card number input field locator
     By cardNumber = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[2]/input");
     public WebElement getCardNumber() {
-        return driver.findElement(cardNumber);  // Returns the card number input field
+        return driver.findElement(cardNumber);
     }
 
     // Card number validation message locator
     By cardNumberValidation = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[2]/div[.='Required']");
     public WebElement getCardNumberValidation() {
-        return driver.findElement(cardNumberValidation);  // Returns the card number validation message
+        return driver.findElement(cardNumberValidation);
     }
 
     // Card holder label locator
     By cardHolderName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[4]/div[.='Card holder']");
     public WebElement getCardHolderName() {
-        return driver.findElement(cardHolderName);  // Returns the card holder label
+        return driver.findElement(cardHolderName);
     }
 
     // Card holder input field locator
     By cardHolder = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[4]/input");
     public WebElement getCardHolder() {
-        return driver.findElement(cardHolder);  // Returns the card holder input field
+        return driver.findElement(cardHolder);
     }
 
     // Card holder validation message locator
     By cardHolderValidation = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[4]/div[.='Required']");
     public WebElement getCardHolderValidation() {
-        return driver.findElement(cardHolderValidation);  // Returns the card holder validation message
+        return driver.findElement(cardHolderValidation);
     }
 
     // Expiry date label locator
     By expireDateName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[6]/div[1]//div[.='Expiry date']");
     public WebElement getExpireDateName() {
-        return driver.findElement(expireDateName);  // Returns the expiry date label
+        return driver.findElement(expireDateName);
     }
 
     // Expiry date input field locator
     By expireDate = By.xpath("//input[@placeholder='MM/YY']");
     public WebElement getExpireDate() {
-        return driver.findElement(expireDate);  // Returns the expiry date input field
+        return driver.findElement(expireDate);
     }
 
     // Expiry date validation message locator
     By expireDateValidation = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[6]/div[1]//div[.='Required']");
     public WebElement getExpireDateValidation() {
-        return driver.findElement(expireDateValidation);  // Returns the expiry date validation message
+        return driver.findElement(expireDateValidation);
     }
 
     // CVV label locator
     By cvvName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[6]/div[2]/div/div[.='CVV']");
     public WebElement getCvvName() {
-        return driver.findElement(cvvName);  // Returns the CVV label
+        return driver.findElement(cvvName);
     }
 
     // CVV input field locator
     By cvv = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[6]/div[2]//input");
     public WebElement getCvv() {
-        return driver.findElement(cvv);  // Returns the CVV input field
+        return driver.findElement(cvv);
     }
 
     // CVV validation message locator
     By cvvValidation = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[6]/div[2]//div[.='Required']");
     public WebElement getCvvValidation() {
-        return driver.findElement(cvvValidation);  // Returns the CVV validation message
+        return driver.findElement(cvvValidation);
     }
 
     // Amount label locator
     By amountName = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[8]/div[.='Amount']");
     public WebElement getAmountName() {
-        return driver.findElement(amountName);  // Returns the amount label
+        return driver.findElement(amountName);
     }
 
     // Amount input field locator
     By amount = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[8]/input");
     public WebElement getAmount() {
-        return driver.findElement(amount);  // Returns the amount input field
+        return driver.findElement(amount);
     }
 
     // Amount validation message locator
     By amountValidation = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div[@class='css-175oi2r r-13awgt0 r-ipm5af']/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[8]/div[.='Required']");
     public WebElement getAmountValidation() {
-        return driver.findElement(amountValidation);  // Returns the amount validation message
+        return driver.findElement(amountValidation);
     }
 
     // Add button locator
     By addButton = By.xpath("/html/body/div[4]/div/div[@class='css-175oi2r']/div[@role='dialog']/div/div/div/div[2]/div[2]/div[@class='css-175oi2r']/div[10]/div[.='Add']");
     public WebElement getAddButton() {
-        return driver.findElement(addButton);  // Returns the 'Add' button
+        return driver.findElement(addButton);
     }
 
     // Method to enter the card number
     public void enterCardNumber(String cardNumber) {
         WebElement cardNumberField = getCardNumber();
-        cardNumberField.sendKeys(cardNumber);  // Enter the card number into the field
+        cardNumberField.sendKeys(cardNumber);
     }
 
     // Method to enter the card holder's name
     public void enterCardHolder(String cardHolder) {
         WebElement cardHolderField = getCardHolder();
-        cardHolderField.sendKeys(cardHolder);  // Enter the card holder's name into the field
+        cardHolderField.sendKeys(cardHolder);
     }
 
     // Method to enter the expiry date
     public void enterExpireDate(String expireDate) {
         WebElement expireDateField = getExpireDate();
-        expireDateField.sendKeys(expireDate);  // Enter the expiry date into the field
+        expireDateField.sendKeys(expireDate);
     }
 
     // Method to enter the CVV
     public void enterCvv(String cvv) {
         WebElement cvvField = getCvv();
-        cvvField.sendKeys(cvv);  // Enter the CVV into the field
+        cvvField.sendKeys(cvv);
     }
 
     // Method to enter the amount
     public void enterAmount(String amount) {
         WebElement amountField = getAmount();
-        amountField.sendKeys(amount);  // Enter the amount into the field
-        this.enteredAmount = amount;  // Store the entered amount
+        amountField.sendKeys(amount);
+        this.enteredAmount = amount;
     }
 
     // Method to retrieve the entered amount
     public String getEnteredAmount() {
-        return this.enteredAmount;  // Returns the entered amount
+        return this.enteredAmount;
     }
 }

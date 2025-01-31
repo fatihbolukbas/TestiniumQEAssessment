@@ -58,6 +58,8 @@ public class myAccountCases {
         WebElement backButton = myAccountActions.getBackButton();
         softAssert.assertTrue(backButton.isDisplayed(), "Back button is not displayed");
         softAssert.assertTrue(backButton.isEnabled(), "Back button is not enabled");
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 2)
@@ -72,6 +74,8 @@ public class myAccountCases {
         // Check the label text to confirm it matches the expected value
         String displayedAccountNameLabel = accountNameLabel.getText();
         softAssert.assertTrue(displayedAccountNameLabel.equals("Account name"), "Expected field label 'Account name', but got " + displayedAccountNameLabel);
+
+        softAssert.assertAll();
     }
 
     // Test to verify the account name is displayed correctly.
@@ -83,6 +87,8 @@ public class myAccountCases {
         Thread.sleep(150);
         String displayedAccountName = myAccountActions.getAccountName().getText();
         softAssert.assertEquals(displayedAccountName, "Fatih", "Expected account name 'Fatih', but got " + displayedAccountName);
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 4)
@@ -96,6 +102,8 @@ public class myAccountCases {
         // Check the label text to confirm it matches the expected value
         String displayedAccountTypeLabel = accountTypeLabel.getText();
         softAssert.assertEquals(displayedAccountTypeLabel, "Account type", "Expected field label 'Account type', but got " + displayedAccountTypeLabel);
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 5)
@@ -106,6 +114,8 @@ public class myAccountCases {
         Thread.sleep(150);
         String displayedAccountType = myAccountActions.getAccountType().getText();
         softAssert.assertEquals(displayedAccountType, "CHECKING", "Expected account type 'CHECKING', but got " + displayedAccountType);
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 6)
@@ -119,6 +129,8 @@ public class myAccountCases {
         // Check the label text to confirm it matches the expected value
         String displayedCreationTimeLabel = creationTimeLabel.getText();
         softAssert.assertEquals(displayedCreationTimeLabel, "Creation time", "Expected field label 'Creation time', but got " + displayedCreationTimeLabel);
+
+        softAssert.assertAll();
     }
 
     //Test to verify the account creation time is displayed correctly.
@@ -130,6 +142,8 @@ public class myAccountCases {
         Thread.sleep(150);
         String displayedAccountCreationTime = myAccountActions.getAccountCreationTime().getText();
         softAssert.assertEquals(displayedAccountCreationTime, "28-01-2025 12:55:08", "Expected creation time '28-01-2025 12:55:08', but got " + displayedAccountCreationTime);
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 8)
@@ -143,6 +157,8 @@ public class myAccountCases {
         // Check the label text to confirm it matches the expected value
         String displayedAmountLabel = amountLabel.getText();
         softAssert.assertEquals(displayedAmountLabel, "Amount", "Expected field label 'Amount', but got " + displayedAmountLabel);
+
+        softAssert.assertAll();
     }
 
     //Test to verify the account balance/amount is displayed correctly.
@@ -165,6 +181,8 @@ public class myAccountCases {
         WebElement transferMoneyButton = myAccountActions.getTransferMoneyButton();
         softAssert.assertTrue(transferMoneyButton.isDisplayed(), "Transfer money button is not displayed");
         softAssert.assertTrue(transferMoneyButton.isEnabled(), "Transfer money button is not enabled");
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 11)
@@ -176,6 +194,8 @@ public class myAccountCases {
         WebElement addMoneyButton = myAccountActions.getAddMoneyButton();
         softAssert.assertTrue(addMoneyButton.isDisplayed(), "Add money button is not displayed");
         softAssert.assertTrue(addMoneyButton.isEnabled(), "Add money button is not enabled");
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 12)
@@ -187,6 +207,8 @@ public class myAccountCases {
         WebElement editAccountButton = myAccountActions.getEditAccountButton();
         softAssert.assertTrue(editAccountButton.isDisplayed(), "Edit account button is not displayed");
         softAssert.assertTrue(editAccountButton.isEnabled(), "Edit account button is not enabled");
+
+        softAssert.assertAll();
     }
 
     // This method runs after all the test methods and quits the WebDriver

@@ -112,6 +112,8 @@ public class loginPageCases {
         WebElement loginButton = loginActions.getLoginButton();
         softAssert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
         softAssert.assertTrue(loginButton.isEnabled(), "Login button is not enabled");
+
+        softAssert.assertAll();
     }
 
     @Test(priority = 6)
@@ -127,6 +129,8 @@ public class loginPageCases {
         softAssert.assertTrue(loginButton.isDisplayed(), "Login button is not displayed");
         softAssert.assertTrue(loginButton.isEnabled(), "Login button is not enabled");
         loginButton.click();
+
+        softAssert.assertAll();
     }
 
     // This method runs after all the test methods and quits the WebDriver

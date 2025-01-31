@@ -13,7 +13,7 @@ public class LoginPage_Locators {
     }
 
     // Username field label locator
-    By usernameFieldLabel = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[3]/div[@class='css-175oi2r r-13qz1uu']/div[.='Enter username*']");
+    By usernameFieldLabel = By.xpath("//div[@class='css-146c3p1 r-1ozpqpt r-g6644c r-1b43r93 r-15zivkp'][1]");
     public WebElement getusernameFieldLabel() {
         return driver.findElement(usernameFieldLabel);
     }
@@ -25,7 +25,7 @@ public class LoginPage_Locators {
     }
 
     // Password field label locator
-    By passwordFieldLabel = By.xpath("/html//div[@id='root']/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[@class='css-175oi2r r-13awgt0']/div[@class='css-175oi2r r-13awgt0']/div/div[4]/div[@class='css-175oi2r r-13qz1uu']/div[.='Enter password*']");
+    By passwordFieldLabel = By.xpath("(//div[@class='css-146c3p1 r-1ozpqpt r-g6644c r-1b43r93 r-15zivkp'])[2]");
     public WebElement getPasswordFieldLabel() {
         return driver.findElement(passwordFieldLabel);
     }
