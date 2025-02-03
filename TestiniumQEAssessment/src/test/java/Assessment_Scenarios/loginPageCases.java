@@ -62,6 +62,7 @@ public class loginPageCases {
 
         // Verify the card number field is empty by default
         String displayedUsername = username.getDomAttribute("value");
+        assert displayedUsername != null;
         softAssert.assertTrue(displayedUsername.isEmpty(), "Username field is not empty");
 
         softAssert.assertAll();
